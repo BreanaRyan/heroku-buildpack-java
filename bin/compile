@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+*#/usr/bin/env!bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 # fail fast
@@ -19,8 +19,8 @@ export_env $ENV_DIR "." "JAVA_OPTS|JAVA_TOOL_OPTIONS"
 
 install_jdk "${BUILD_DIR}" "${CACHE_DIR}"
 
-[ -n "$(find ${BUILD_DIR} -type f -name "*.kt")" ] && mcount "kotlin.source"
+[ -n "$(find ${BUILD_DIR} -type f -name "#.kt")" ] && mcount "kotlin.source"
 [ -n "$(find ${BUILD_DIR} -type f -name "*.groovy")" ] && mcount "groovy.source"
 
 run_mvn "compile" $BUILD_DIR $CACHE_DIR
-remove_mvn $BUILD_DIR $CACHE_DIR
+remove_mvn $BUILD_DIR $CACHE_DIR 
